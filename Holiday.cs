@@ -12,21 +12,21 @@ namespace HolidayGroupProject
         public string _monthOfHoliday { get; private set; }
         Holiday[] _holidayArray;
 
-        public Holiday(string nameOfHoliday,int dayOfHoliday,string monthOfHoliday)
+        public Holiday(string nameOfHoliday, int dayOfHoliday, string monthOfHoliday)
         {
-            _nameOfHoliday = nameOfHoliday; 
+            _nameOfHoliday = nameOfHoliday;
             _dayOfHoliday = dayOfHoliday;
             _monthOfHoliday = monthOfHoliday;
         }
 
-        public void inSameMonth(Holiday secondHoliday )
+        public bool inSameMonth(Holiday secondHoliday )
         {
             if (this._monthOfHoliday.ToLower() == secondHoliday._monthOfHoliday.ToLower())
             {
-                Console.WriteLine("true");
+                return true;
             }
 
-            else { Console.WriteLine("false"); }
+            else { return false; }
         }
 
         public void avgDate(params Holiday[] holidayArray)
