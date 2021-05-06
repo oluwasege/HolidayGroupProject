@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HolidayGroupProject
 {
@@ -9,6 +10,7 @@ namespace HolidayGroupProject
         public string _nameOfHoliday { get; private set; }
         public int _dayOfHoliday { get; private set; }
         public string _monthOfHoliday { get; private set; }
+        Holiday[] _holidayArray;
 
         public Holiday(string nameOfHoliday,int dayOfHoliday,string monthOfHoliday)
         {
@@ -27,9 +29,20 @@ namespace HolidayGroupProject
             else { Console.WriteLine("false"); }
         }
 
-        public void avgDate(Holiday[] Holiday)
+        public void avgDate(params Holiday[] holidayArray)
         {
+            _holidayArray = holidayArray;
+            int sumOfHolidayDay = 0;
+            double avg = 0.00d;
+            int n = _holidayArray.Length;
+            foreach (var i in holidayArray)
+            {
+                sumOfHolidayDay += i._dayOfHoliday;
+            }
 
+            avg = (Convert.ToDouble(sumOfHolidayDay)) / n;
+            Console.WriteLine($"This is the average of the Days there are Holidays : {avg}");
+           
         }
 
 
